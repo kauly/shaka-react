@@ -1,22 +1,47 @@
 import * as React from "react";
-import shaka from "shaka-player";
+import * as ReactDOM from "react-dom";
 
-const initPlayer = async (pVideoRef: HTMLVideoElement, manifest: string) => {
-  const player = new shaka.Player(pVideoRef);
+import "shaka-player/dist/controls.css";
+import shaka from "shaka-player/dist/shaka-player.ui.js";
+
+import "./index.css";
+
+import Trick from "./components/TrickButton";
+
+const initPlayer = async (
+  pVideoRef: HTMLVideoElement,
+  manifest: string,
+  setPlayer: (p: any) => void
+) => {
+  const ui = pVideoRef["ui"];
+  const config = {
+    controlPanelElements: [
+      "rewind",
+      "play_pause",
+      "fast_forward",
+      "time_and_duration",
+      "mute",
+      "volume",
+      "fullscreen",
+      "overflow_menu",
+      "aa"
+    ]
+  };
+  ui.configure(config);
+  const controls = ui.getControls();
+  const player = controls.getPlayer();
+  // player.trickPlay(2);
   player.addEventListener("error", onError);
+  controls.addEventListener("error", onError);
+
+  // player.registerElement("kauly", btn);
   try {
     await player.load(manifest);
     console.log("The video has now been loaded!");
+    setPlayer(player);
   } catch (err) {
     onError(err);
   }
-};
-
-const initApp = (pVideoRef: HTMLVideoElement, manifest: string) => {
-  shaka.polyfill.installAll();
-  shaka.Player.isBrowserSupported()
-    ? initPlayer(pVideoRef, manifest)
-    : console.error("Browser not supported!");
 };
 
 const onError = (event: any) =>
@@ -25,33 +50,45 @@ const onError = (event: any) =>
 interface IShakaReactProps {
   id?: string;
   manifest: string;
-  controls?: boolean;
   autoPlay?: boolean;
   width?: string;
 }
 
 const ShakaReact = (props: IShakaReactProps) => {
   const videoRef = React.createRef<HTMLVideoElement>();
+  const containerRef = React.createRef<HTMLDivElement>();
+  const [player, setPlayer] = React.useState<any>(null);
+
   React.useEffect(() => {
-    initApp(videoRef.current, props.manifest);
+    document.addEventListener("shaka-ui-loaded", () =>
+      initPlayer(videoRef.current, props.manifest, setPlayer)
+    );
+
+    shaka.ui.Controls.registerElement("aa", new Trick.Factory());
   }, []);
 
   return (
-    <video
-      ref={videoRef}
-      id={props.id}
-      width={props.width}
-      controls={props.controls}
-      autoPlay={props.autoPlay}
-    ></video>
+    <div
+      data-shaka-player-container
+      data-shaka-player-cast-receiver-id="7B25EC44"
+      style={{ maxWidth: props.width }}
+      ref={containerRef}
+    >
+      <video
+        data-shaka-player
+        ref={videoRef}
+        id={props.id}
+        style={{ width: "100%", height: "100%" }}
+        autoPlay={props.autoPlay}
+      ></video>
+    </div>
   );
 };
 
 ShakaReact.defaultProps = {
   id: "video",
-  width: "640",
-  controls: true,
-  autoPlay: true
+  width: "40em",
+  autoPlay: false
 };
 
 export default ShakaReact;

@@ -1,0 +1,36 @@
+.container {
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  height: 20px;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.menuContainer {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 34px;
+
+  color: black;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.menuItem:hover {
+  background-color: rgba(52, 152, 219, 0.9);
+}
+
+.menuItem {
+  padding: 2px;
+}
+.hide {
+  display: none;
+}
+
+.show {
+  display: flex;
+}
