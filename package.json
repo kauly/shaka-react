@@ -4,6 +4,10 @@
   "main": "lib/shaka-react.js",
   "types": "lib/index.d.ts",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kauly/shaka-react"
+  },
   "dependencies": {
     "mux.js": "^5.3.0",
     "popper.js": "^1.15.0",
