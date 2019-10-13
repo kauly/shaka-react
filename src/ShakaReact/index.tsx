@@ -48,6 +48,14 @@ const initPlayer = async (
   ui.configure(uiConfig);
 
   player.addEventListener("error", onError);
+  player.addEventListener("buffering", ({ buffering }: any) => {
+    if (!buffering) {
+      pContainerRef.childNodes[2].setAtribute(
+        "class",
+        "shaka-spinner-container shaka-hidden"
+      );
+    }
+  });
   props.onProgress &&
     pVideoRef.addEventListener("timeupdate", (p: any) =>
       props.onProgress(pVideoRef.currentTime)
