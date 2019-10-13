@@ -1,6 +1,6 @@
 {
   "name": "shaka-react",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "lib/shaka-react.js",
   "types": "lib/index.d.ts",
   "license": "MIT",

@@ -3,3 +3,6 @@ yarn.lock
 lib
 dist
 .npmignore
+package-lock.json
+yarn.lock
+dist
