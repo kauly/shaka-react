@@ -2,7 +2,16 @@
 
 ## About
 
-A React wrapper around the [shaka-player](https://shaka-player-demo.appspot.com/docs/api/index.html). I build this library specific for a client, but you can use with fit to yours needs. The player can play HLS and DASH content. 
+A React wrapper around the [shaka-player](https://shaka-player-demo.appspot.com/docs/api/index.html). I build this library specific for a client, but you can use with fit to yours needs. The player can play HLS and DASH content.
+
+## Install
+
+```yarn add shaka-react```
+
+or
+
+```npm i shaka-react```
+
 
 ## Usage
 
@@ -11,7 +20,8 @@ See the [demo](https://github.com/kauly/shaka-react/tree/master/demo) folder for
 ```javascript
 import React from "react";
 import ShakaReact from "shaka-react";
-const posterImg = require("./poster.jpg");
+import posterImg from "./poster.jpg";
+
 
 const manifestUri =
   "https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd";
@@ -45,8 +55,10 @@ export default App;
 ```
 ## API
 
-| name     | type   | desc                    |
-| -------- | ------ | ----------------------- |
-| manifest | string | url of the video source |
-| 1        | 2      | 3                       |
+| name     | type    | desc                                            |
+| -------- | ------- | ----------------------------------------------- |
+| manifest | string  | url of the video source                         |
+| poster   | string  | path or url to a image                          |
+| autoPlay | boolean | in some browser will depend on user permissions |
+| title    | string  | this is only used to name the offline video     |
 

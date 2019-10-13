@@ -1,9 +1,9 @@
 import * as React from "react";
+import muxjs from "mux.js";
 import "shaka-player/dist/controls.css";
 import shaka from "shaka-player/dist/shaka-player.ui.js";
 import Trick from "./components/TrickButton";
 import Download from "./components/DownloadButton";
-import "./index.css";
 
 const uiConfig = {
   controlPanelElements: [
@@ -44,20 +44,21 @@ const initPlayer = async (
 
   shaka.ui.Controls.registerElement("trick", trickBtn);
   shaka.ui.Controls.registerElement("down", downBtn);
-  const iOS =
-    !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
 
-  player.configure({
-    streaming: {
-      useNativeHlsOnSafari: iOS ? true : false
-    }
-  });
   ui.configure(uiConfig);
 
   player.addEventListener("error", onError);
+  props.onProgress &&
+    pVideoRef.addEventListener("timeupdate", (p: any) =>
+      props.onProgress(pVideoRef.currentTime)
+    );
+
+  props.onPause &&
+    pVideoRef.addEventListener("pause", (p: any) =>
+      props.onPause(pVideoRef.currentTime)
+    );
 
   try {
-    // second arg is time ;))
     await player.load(props.manifest, props.initialTime);
     console.log("The video has now been loaded!");
     setUI(ui);
@@ -95,6 +96,11 @@ const ShakaReact = (props: IShakaReactProps) => {
   const [shakaStorage, setShakaStorage] = React.useState<any>(null);
 
   React.useEffect(() => {
+    const iOS =
+      !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+
+    // @ts-ignore
+    window.muxjs = iOS ? null : muxjs;
     initPlayer(
       videoRef.current,
       containerRef.current,
@@ -104,15 +110,11 @@ const ShakaReact = (props: IShakaReactProps) => {
       { ...props }
     );
 
-    props.onProgress &&
-      videoRef.current.addEventListener("timeupdate", (p: any) =>
-        props.onProgress(p.path[0].currentTime)
-      );
-
-    props.onPause &&
-      videoRef.current.addEventListener("pause", (p: any) =>
-        props.onPause(p.path[0].currentTime)
-      );
+    return () => {
+      player.destroy();
+      uiObj.destroy();
+      shakaStorage.destroy();
+    };
   }, []);
 
   return (
@@ -125,6 +127,7 @@ const ShakaReact = (props: IShakaReactProps) => {
         ref={videoRef}
         style={{ width: "100%", height: "100%" }}
         poster={props.poster ? props.poster : undefined}
+        autoPlay={props.autoPlay}
       ></video>
     </div>
   );
@@ -133,7 +136,7 @@ const ShakaReact = (props: IShakaReactProps) => {
 ShakaReact.defaultProps = {
   id: "video",
   width: "40em",
-  autoPlay: false,
+  autoPlay: true,
   title: null,
   initialTime: 0,
   onDownloadEnd: null,

@@ -1,6 +1,6 @@
 {
   "name": "shaka-react",
-  "version": "1.0.3",
+  "version": "1.0.7",
   "main": "lib/shaka-react.js",
   "types": "lib/index.d.ts",
   "license": "MIT",
@@ -8,6 +8,10 @@
     "type": "git",
     "url": "https://github.com/kauly/shaka-react"
   },
+  "keywords": [
+    "shaka-react"
+  ],
+  "description": "React wrapper around shaka-player",
   "dependencies": {
     "mux.js": "^5.3.0",
     "popper.js": "^1.15.0",
@@ -27,13 +31,13 @@
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
     "file-loader": "^4.2.0",
+    "react": "^16.10.1",
+    "react-dom": "^16.10.1",
     "shx": "^0.3.2",
     "style-loader": "^1.0.0",
     "typescript": "^3.6.3",
     "webpack": "^4.40.0",
-    "webpack-cli": "^3.3.8",
-    "react": "^16.10.1",
-    "react-dom": "^16.10.1"
+    "webpack-cli": "^3.3.8"
   },
   "scripts": {
     "clean": "shx rm -rf lib",

@@ -1,5 +1,5 @@
 import React from "react";
-import ShakaReact from "shaka-react";
+import ShakaReact from "../../src/ShakaReact";
 import posterImg from "./poster.jpg";
 
 const manifestUri =
