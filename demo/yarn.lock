@@ -3509,6 +3509,11 @@ mux.js@^5.3.0:
   resolved "https://registry.yarnpkg.com/mux.js/-/mux.js-5.4.0.tgz#a6877dce899fc64b709315fcd1444ab8c691e1fd"
   integrity sha512-UHCJk+Y2ZNU7Wpg+RKDeegr2GKtGjDG1RC+95dVG+OlM2Wz60vpK1LbC3J4D6ehWvtAC8EAaWGzKPzeAiVJxWw==
 
+mux.js@^5.5.1:
+  version "5.5.1"
+  resolved "https://registry.yarnpkg.com/mux.js/-/mux.js-5.5.1.tgz#5bd5d7b2e5e5560da8126928e93af3c532e08372"
+  integrity sha512-5VmmjADBqS4++8pTI6poSRJ+chHdaoI4XErcQPM5w4QfwaDl+FQlSI0iOgWbYDn6CBCbDRKaSCcEiN2K5aHNGQ==
+
 nan@^2.12.1:
   version "2.14.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.0.tgz#7818f722027b2459a86f0295d434d1fc2336c52c"
@@ -4622,10 +4627,10 @@ shaka-player@^2.5.5:
   resolved "https://registry.yarnpkg.com/shaka-player/-/shaka-player-2.5.5.tgz#81e7265f28f631afd3837c06ec6637824bda71e4"
   integrity sha512-YEWBFapWKjwy2+wIgH9NqoFW9A14LIYNAoJ9cQr3c9BGS7qjqxeiYM/H1BJ8so1FQexpsWUdyjwHvcspdc7/nw==
 
-shaka-react@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/shaka-react/-/shaka-react-1.0.2.tgz#3cba9322c0477e9bceca4d7e5e05394bc3f30ca9"
-  integrity sha512-EtwQT1JGzJs7sqAuIcIjU1qI5A/AfyOSt9jZNocTdMUA7oadB5ZqSLxJMARZ+DntY/a+jr211093DoHtegwt0w==
+shaka-react@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/shaka-react/-/shaka-react-1.0.4.tgz#0f71e363a0c832d16c9b177769210d738ae70140"
+  integrity sha512-kxdCzb1xrF/gh7WmK2jYYS0yBWxLEnjhPso3RkaSaUKzpEuYFDe/UeTlr9Lctih3LsnBSkyeuejWWunQ+2Nn0Q==
   dependencies:
     mux.js "^5.3.0"
     popper.js "^1.15.0"
