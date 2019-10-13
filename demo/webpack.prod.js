@@ -2,24 +2,21 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
+  mode: "production",
   entry: "./src/index.tsx",
   output: {
     filename: "bundle.js",
-    path: path.join(__dirname, "/dist")
+    path: path.resolve(__dirname, "dist")
   },
   resolve: {
-    extensions: [".tsx", ".js", ".json", ".ts"],
-    alias: {
-      react: path.resolve(__dirname, "./node_modules/react"),
-      "react-dom": path.resolve(__dirname, "./node_modules/react-dom")
-    }
+    extensions: [".tsx", ".js", ".json", ".ts"]
   },
   module: {
     rules: [
       { test: /\.(png|svg|jpg|gif)$/, loader: "file-loader" },
       {
         test: [/\.jsx?$/, /\.tsx?$/],
-        exclude: /(node_modules|bower_components)/,
+        exclude: /node_modules/,
         use: {
           loader: "babel-loader",
           options: {
@@ -34,12 +31,5 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./dist/index.html"
     })
-  ],
-  devServer: {
-    stats: {
-      children: false,
-      maxModules: 0
-    },
-    port: 3000
-  }
+  ]
 };

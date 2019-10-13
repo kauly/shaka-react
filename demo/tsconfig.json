@@ -2,14 +2,15 @@
   "compilerOptions": {
     "outDir": "./dist/",
     "sourceMap": true,
+    "strict": true,
+    "noImplicitReturns": true,
     "noImplicitAny": true,
-    "module": "commonjs",
-    "target": "es6",
-    "jsx": "react",
-    "types": ["react", "node"]
+    "module": "es6",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "target": "es5",
+    "allowJs": true,
+    "jsx": "react"
   },
-  "awesomeTypescriptLoaderOptions": {
-    "errorsAsWarnings": true
-  },
-  "include": ["./src/**/*", "../src/**/*"]
+  "include": ["./src/**/*"]
 }

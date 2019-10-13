@@ -1,3 +1,14 @@
+# SHAKA-REACT
+
+## About
+
+A React wrapper around the [shaka-player](https://shaka-player-demo.appspot.com/docs/api/index.html). I build this library specific for a client, but you can use with fit to yours needs. The player can play HLS and DASH content. 
+
+## Usage
+
+See the [demo](https://github.com/kauly/shaka-react/tree/master/demo) folder for implementation.
+
+```javascript
 import React from "react";
 import ShakaReact from "shaka-react";
 const posterImg = require("./poster.jpg");
@@ -5,8 +16,6 @@ const posterImg = require("./poster.jpg");
 const manifestUri =
   "https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd";
 
-const hlsManifest =
-  "https://d3bylyuywq99jd.cloudfront.net/ad188b41-38b6-4414-88f4-edfa0a6aa9ce/hls/joao_paulo_aula064_16-09-19.m3u8";
 
 const onDown = (offUri: string): any => {
   console.log("TCL: offUri", offUri);
@@ -22,7 +31,7 @@ const onPause = (currenTime: number) => {
 
 const App = () => (
   <ShakaReact
-    manifest={hlsManifest}
+    manifest={manifestUri}
     poster={posterImg}
     title="start"
     onDownloadEnd={onDown}
@@ -32,3 +41,12 @@ const App = () => (
 );
 
 export default App;
+
+```
+## API
+
+| name     | type   | desc                    |
+| -------- | ------ | ----------------------- |
+| manifest | string | url of the video source |
+| 1        | 2      | 3                       |
+

@@ -1,4 +1,4 @@
-.container {
+.trickContainer {
   width: 30px;
   display: flex;
   justify-content: center;
@@ -7,9 +7,11 @@
   height: 20px;
   color: black;
   background-color: rgba(255, 255, 255, 0.9);
+  margin-right: auto;
 }
 
-.menuContainer {
+.trickMenuContainer {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -20,17 +22,17 @@
   background-color: rgba(255, 255, 255, 0.9);
 }
 
-.menuItem:hover {
+.trickMenuItem:hover {
   background-color: rgba(52, 152, 219, 0.9);
 }
 
-.menuItem {
+.trickMenuItem {
   padding: 2px;
 }
 .hide {
   display: none;
 }
 
-.show {
+.showTrick {
   display: flex;
 }
