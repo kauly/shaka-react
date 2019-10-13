@@ -50,7 +50,8 @@ const initPlayer = async (
   player.addEventListener("error", onError);
   player.addEventListener("buffering", ({ buffering }: any) => {
     if (!buffering) {
-      pContainerRef.childNodes[2].setAtribute(
+      // @ts-ignore
+      pContainerRef.childNodes[2].setAttribute(
         "class",
         "shaka-spinner-container shaka-hidden"
       );
