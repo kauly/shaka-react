@@ -4627,10 +4627,10 @@ shaka-player@^2.5.5:
   resolved "https://registry.yarnpkg.com/shaka-player/-/shaka-player-2.5.5.tgz#81e7265f28f631afd3837c06ec6637824bda71e4"
   integrity sha512-YEWBFapWKjwy2+wIgH9NqoFW9A14LIYNAoJ9cQr3c9BGS7qjqxeiYM/H1BJ8so1FQexpsWUdyjwHvcspdc7/nw==
 
-shaka-react@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/shaka-react/-/shaka-react-1.0.4.tgz#0f71e363a0c832d16c9b177769210d738ae70140"
-  integrity sha512-kxdCzb1xrF/gh7WmK2jYYS0yBWxLEnjhPso3RkaSaUKzpEuYFDe/UeTlr9Lctih3LsnBSkyeuejWWunQ+2Nn0Q==
+shaka-react@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/shaka-react/-/shaka-react-1.0.6.tgz#9c49437be99e2135ed07167787f020f2e99b4fab"
+  integrity sha512-t7XKYJRzlPcpjjY6CW1WjIjGQp9sBqIf4pwxrqiTsRMVvGEjtluRTQ+KLtTzCoijce6HLJHbXLFmyRhmaZUPCA==
   dependencies:
     mux.js "^5.3.0"
     popper.js "^1.15.0"

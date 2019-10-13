@@ -1,6 +1,6 @@
 import React from "react";
 import ShakaReact from "shaka-react";
-const posterImg = require("./poster.jpg");
+import posterImg from "./poster.jpg";
 
 const manifestUri =
   "https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd";

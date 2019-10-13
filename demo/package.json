@@ -7,7 +7,7 @@
     "mux.js": "^5.5.1",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
-    "shaka-react": "^1.0.4"
+    "shaka-react": "^1.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
@@ -29,7 +29,8 @@
     "webpack-dev-server": "^3.8.0"
   },
   "scripts": {
-    "start:dev": "webpack-dev-server --config webpack.dev.js --mode development --hot",
-    "start:build": "webpack --config webpack.prod.js"
+    "start:dev": "yarn clean && webpack-dev-server --config webpack.dev.js --mode development --hot",
+    "clean": "shx rm -rf dist",
+    "start:build": "yarn clean && webpack --config webpack.prod.js"
   }
 }
