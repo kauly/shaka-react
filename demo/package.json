@@ -7,7 +7,7 @@
     "mux.js": "^5.5.1",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
-    "shaka-react": "^1.0.6"
+    "shaka-react": "^1.0.9"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
